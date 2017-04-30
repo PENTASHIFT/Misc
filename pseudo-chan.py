@@ -1,5 +1,3 @@
-from random import randint
-
 """
 A script to roll a series of nine numbers like on *chan. Written in Python 3. 
 Complete with fairly unhelpful commenting.
@@ -8,6 +6,8 @@ Date Created: March 4th, 2017
 Edit: March 20th, 2017
 
 """
+
+from random import randint
 
 
 # How many rolls would you like?
