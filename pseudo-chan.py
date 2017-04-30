@@ -9,7 +9,6 @@ Edit: March 20th, 2017
 
 from random import randint
 
-
 # How many rolls would you like?
 print("Please enter how many rolls you'd like.")
 
@@ -21,7 +20,6 @@ while True:
    except ValueError:
       print("Please enter a whole number.")
       continue
-    
 
 # Checking the last digits of rolls for repeating numbers. 
 def checkRoll(roll):
@@ -42,6 +40,6 @@ def pseudoRoll():
         outpt += str(rand)
     return outpt
 
-
+# Finally a for loop to put everything together.
 for _ in range(roll_num):
     print(checkRoll(pseudoRoll()))
