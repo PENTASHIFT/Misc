@@ -35,7 +35,7 @@ def checkRoll(roll):
 # Gets a set of nine random numbers for the roll.
 def pseudoRoll():
     outpt = "\t- "
-    for itr in range(9):
+    for _ in range(9):
         rand = randint(0, 9)
         outpt += str(rand)
     return outpt
