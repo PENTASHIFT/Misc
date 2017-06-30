@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 A script to roll a series of nine numbers like on *chan. Written in Python 3. 
 Complete with fairly unhelpful commenting.
