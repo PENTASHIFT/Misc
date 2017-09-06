@@ -1,7 +1,7 @@
 # An automated back-up script I threw together in a night.
 
 # TODO:: Try to not have script break when it tries to run a directory.
-# TODO:: Make this mess somewhat coherant.
+# TODO:: Make this mess somewhat coherent.
 # TODO:: Follow some sort of style guideline.
 
 import os
