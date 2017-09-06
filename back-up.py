@@ -11,7 +11,6 @@ from threading import Thread
 
 # Pushes files to BACKUPDIR in parallel.
 def backup(lst, homeDir):
-
     backupDir = '/home/<usr>/<path>' # Make sure to set your user and path here.
 
     for files in lst:
@@ -24,7 +23,6 @@ def backup(lst, homeDir):
 
 # Send parsed files list to BACKUP.
 def Main():
-    
     homeDir = '/home/<usr>' # Make sure to set your user here.
 
     try:
