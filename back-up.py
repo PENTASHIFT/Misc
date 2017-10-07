@@ -1,49 +1,23 @@
-# An automated back-up script I threw together in a night.
+#!/usr/bin/env python3
 
-# TODO:: Try to not have script break when it tries to run a directory.
-# TODO:: Make this mess somewhat coherent.
-# TODO:: Follow some sort of style guideline.
+""" An automated, functional backup script for *nix based systems.
+    Utilizing parallel functionality to refrain from wasted time. """
 
 import os
+import sys
 from shutil import copy
 from threading import Thread
 
+def backup(x):
+    pass
 
-# Pushes files to BACKUPDIR in parallel.
-def backup(lst, homeDir):
-    backupDir = '/home/<usr>/<path>' # Make sure to set your user and path here.
-
-    for files in lst:
-        home = homeDir + files
-        backup = backupDir + files
-
-        copy(home, backup)
-        print("Moved: {0} to: {1}".format(files, backup))
-
-
-# Send parsed files list to BACKUP.
-def Main():
-    homeDir = '/home/<usr>' # Make sure to set your user here.
-
-    try:
-        homeDir += input('> ')
-        lst = os.listdir(homeDir)
-    except:
-        print("Please enter a valid directory.")
-        Main()
-
-    if len(lst)>1:
-        mid = len(lst)//2
-        topLst, btmLst = lst[:mid], lst[mid:]
+def parse_dir(x):
+    """ Recieves the directory and then parses the contents 
+        into a two item tuple to then backup in parallel. """
+    y, z = divmod(len(x), 2)
+    return (x[:y + z], x[y + z:])
     
-        t1 = Thread(target=backup, args=(topLst, homeDir,))
-        t2 = Thread(target=backup, args=(btmLst, homeDir,))
-        t1.start()
-        t2.start()
-    else:
-        print("Empty directory.")
-        Main()
 
-
-if __name__ == '__main__':
-    Main()
+# PSEUDO-CODE
+x = os.listdir('/home/gary/Pictures/')    
+print(os.path.isdir(parse_dir(x[0])[0]))
