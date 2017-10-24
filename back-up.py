@@ -11,7 +11,7 @@ from threading import Thread
 
 def identify(item, cwd):
     """ Recieves a single item from the tuple from BACKUP and checks
-        whether it's a directory, if not it backs it up. """`
+        whether it's a direcetory, if not it backs it up. """
     cwd = os.path.join(cwd, item)
     if os.path.isdir(cwd):
         print('Parsing: %s.' %item)
@@ -20,14 +20,17 @@ def identify(item, cwd):
         print('Copying: %s' %item)
         copy(cwd, end)
 
-def backup(lst, cwd):
-    """ Recieves half the tuple from PARSE_DIR and the directory then 
-        maps the tuple to the identify function. """
-    list(map(lambda x: identify(x, cwd), lst))
 
 def parse_dir(cwd):
     """ Recieves the directory and then parses the contents 
         into a two item tuple to then backup in parallel. """
+    
+    def backup(lst, cwd):
+        """ Recieves half the tuple from PARSE_DIR  and the
+            directory then  maps the tuple to IDENTIFY. """
+        for i in lst:
+            identify(i, cwd)
+
     lst = os.listdir(cwd)
     if not len(lst) <= 1:
         y, z = divmod(len(lst), 2)
@@ -40,6 +43,6 @@ def parse_dir(cwd):
         backup(lst, cwd)
 
 # Meta Code.
-start = '<directory to backup>'
+start = '<starting directory here>'
 end = '<ending directory here>'
 parse_dir(start)
