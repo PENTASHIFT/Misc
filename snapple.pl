@@ -23,8 +23,7 @@ my $dbname = "snapple.db";
 my $dbh = DBI->connect("dbi:SQLite:dbname=$dbname", "", "");
 my ($i, $n) = (1, 0);
 while ($n < 1999) {
-	# Parsing the raw data from FACT_ARR and placing it into a database
-	# with columns:
+	# Parsing the raw data from FACT_ARR and placing it into a database with columns:
 		# Number -> The Snapple Fact Number.
 		# Fact -> The actual Snapple Fact.
 		# Redacted -> Boolean, if 0 it's still on the snapple website
